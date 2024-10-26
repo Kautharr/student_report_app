@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Upload Study Hours</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Upload Your Study Hours CSV File</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="month">Select Month and Year:</label><br>
+        <input type="month" id="month" name="month" required><br><br>
+
+        <label for="file">Choose File:</label>
+        <input type="file" id="file" name="file" required><br><br>
+        <input type="submit" value="Upload">
+    </form>
+
+    <br>
+    <a href="/user-dashboard">View My Dashboard</a>  
+    <br>
+    <a href="/logout">Logout</a>
+</body>
+</html>

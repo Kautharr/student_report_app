@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <h1>Register as a New Student</h1>
+    <form action="/register" method="post">
+        <label for="username">Enter Username (No Spaces):</label><br>
+        <input type="text" id="username" name="username" required pattern="[A-Za-z0-9]+" title="Username can only contain letters and numbers, no spaces"><br><br>
+        
+        <label for="registered_name">Enter Student-Registered Name (Block Letters):</label><br>
+        <input type="text" id="registered_name" name="registered_name" required pattern="[A-Z\s]+" title="Registered name must be in uppercase letters"><br><br>
+        
+        <label for="password">Create Password:</label><br>
+        <input type="password" id="password" name="password" required><br><br>
+        
+        <input type="submit" value="Register">
+    </form>
+</body>
+</html>

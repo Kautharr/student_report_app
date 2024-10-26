@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>My Dashboard</h1>
+
+    <!-- Form for filtering by month -->
+    <form method="POST">
+        <label for="month">Filter by Month:</label>
+        <input type="month" id="month" name="month">
+        <input type="submit" value="Filter">
+    </form>
+
+    <!-- Dynamic title for study hours report based on selected month -->
+    {% if selected_month %}
+    <h2>Study Hours Report for {{ registered_name }} for the month of {{ format_month_year(selected_month) }}</h2>
+    {% else %}
+    <h2>Study Hours by Subject</h2>
+    {% endif %}
+
+    <!-- Study hours table with indexing -->
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Subject</th>
+            <th>Hours</th>
+            <th>Month</th>
+        </tr>
+        {% for idx, (registered_name, subject, hours, month) in user_study_data %}
+        <tr>
+            <td>{{ idx }}</td>
+            <td>{{ subject }}</td>
+            <td>{{ hours }}</td>
+            <td>{{ month }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <!-- Total hours per month table with indexing -->
+    <h2>Total Hours per Month</h2>
+    <table>
+        <tr>
+            <th>#</th>
+            <th>Month</th>
+            <th>Total Hours</th>
+        </tr>
+        {% for idx, (month, total_hours) in total_hours_per_month %}
+        <tr>
+            <td>{{ idx }}</td>
+            <td>{{ month }}</td>
+            <td>{{ total_hours }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <br>
+    <a href="/upload">Upload Study Hours</a>
+    <a href="/logout">Logout</a>  <!-- Logout button on the user's dashboard -->
+</body>
+</html>

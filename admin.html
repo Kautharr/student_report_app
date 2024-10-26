@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Admin Dashboard</h1>
+
+    <form method="POST">
+        <label for="month">Filter by Month:</label>
+        <input type="month" id="month" name="month">
+        
+        <label for="student_name">Filter by Student Name:</label>
+        <input type="text" id="student_name" name="student_name" placeholder="Enter student name">
+
+        <input type="submit" value="Filter">
+    </form>
+
+    <h2>Study Hours by Subject</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Subject</th>
+            <th>Hours</th>
+            <th>Month</th>
+        </tr>
+        {% for student_name, subject, hours, month in sorted_students %}
+        <tr>
+            <td>{{ student_name }}</td>
+            <td>{{ subject }}</td>
+            <td>{{ hours }}</td>
+            <td>{{ month }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <h2>Total Hours per Student</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Total Hours</th>
+        </tr>
+        {% for student_name, total_hours in total_hours_per_student.items() %}
+        <tr>
+            <td>{{ student_name }}</td>
+            <td>{{ total_hours }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <a href="/logout">Logout</a>
+</body>
+</html>
