@@ -1,6 +1,6 @@
 # Study Hours Tracking Application
 
-A web-based application for tracking student study hours. This app was built using **Flask** for the backend and **HTML/CSS** for the frontend, with role-based access for students and admins. It allows users to upload CSV files to track study hours and view their accumulated data on a personalized dashboard.
+A web-based application for tracking student study hours. This app was built using **Flask** for the backend and **HTML/CSS** for the frontend, with role-based access for students and admins. It allows users to upload CSV files to track study hours and view their accumulated data on a personalised dashboard.
 
 ## Features
 
@@ -19,7 +19,6 @@ A web-based application for tracking student study hours. This app was built usi
 - **Python 3.x**: Ensure Python is installed on your machine.
 - **Flask**: Install Flask via pip if it's not already installed.
 
-in terminal:
 pip install Flask
 
 Installation
@@ -63,28 +62,6 @@ Usage
 	•	After uploading or reviewing hours, you can log out to end your session securely.
 
 File Structure
+![File Structure](https://github.com/Kautharr/student_report_app/blob/main/file_structure.png)
 
-study-hours-tracking/
-│
-├── app.py               # Main application file
-├── requirements.txt     # Python dependencies
-├── README.md            # Project documentation
-│
-├── templates/           # HTML templates
-│   ├── upload.html      # Upload page
-│   ├── report.html      # Report page for study hours
-│   ├── dashboard.html   # Dashboard for admins and students
-│
-└── static/              # Static files
-    ├── css/
-    │   └── style.css    # CSS styling for the app
-    └── uploads/         # Folder for storing uploaded CSV files
 
-Contributing
-Contributions are welcome! If you’d like to contribute, please create a pull request, and I’ll review it.
-
-License
-This project is licensed under the MIT License. See LICENSE for details.
-
-Acknowledgments
-	•	Thanks to OpenAI’s ChatGPT for generating initial code suggestions and supporting architecture improvements.
